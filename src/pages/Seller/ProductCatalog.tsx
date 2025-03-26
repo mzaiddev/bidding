@@ -190,6 +190,37 @@ const ProductCatalog = () => {
             </select>
           </div>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-gray-400 text-sm mb-2">SKU</label>
+            <input 
+              type="text" 
+              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white"
+              placeholder="Enter SKU"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-gray-400 text-sm mb-2">Item Condition</label>
+            <select className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
+              <option>New/Artisan Fresh</option>
+              <option>Archival Quality </option>
+              <option>Aged Patina</option>
+              <option>Authenticated</option>
+              <option>Master Crafted</option>
+              <option>Exhibition Piece</option>
+              <option>Workshop Original</option>
+              <option>Commissioned Work</option>
+              <option>Limited Edition</option>
+              <option>Heritage Piece</option>
+              <option>Restored</option>
+              <option>Demonstration Piece</option>
+              <option>Apprentice Work</option>
+              <option>Seasonal Creation</option>
+              <option>Antique Original</option>
+            </select>
+          </div>
+        </div>
         
         <div className="mt-6 p-4 border border-dashed border-gray-600 rounded-lg text-center">
           <div className="flex flex-col items-center">

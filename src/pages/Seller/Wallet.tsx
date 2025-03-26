@@ -125,7 +125,7 @@ const WalletComponent = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <button className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-lg flex items-center justify-center transition-colors duration-200 shadow-md">
             <Upload size={20} className="mr-2" />
-            Withdraw Funds
+           Request Withdraw Funds
           </button>
           <button className="bg-gray-700 hover:bg-gray-600 text-white p-4 rounded-lg flex items-center justify-center transition-colors duration-200">
             <Download size={20} className="mr-2" />

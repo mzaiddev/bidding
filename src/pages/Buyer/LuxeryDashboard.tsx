@@ -4,6 +4,7 @@ import { Calendar, Clock, Heart, Award, } from 'lucide-react';
 const LuxuryBuyerDashboard = () => {
   const [favorites, setFavorites] = useState([1]);
   const [isMobile, setIsMobile] = useState(false);
+  const [checkpassBids, setCheckpassBids] = useState<Record<string, boolean>>({});
 
   
   // Sample auction data
@@ -105,18 +106,34 @@ const LuxuryBuyerDashboard = () => {
                         <p className="text-md text-gray-300">₹{auction.reserve.toLocaleString()}</p>
                       </div>
                     </div>
-                    
-                    <div className="flex gap-2">
-                      <button className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors duration-200 shadow-md">
-                        Place Bid
-                      </button>
-                      <button 
-                        className={`w-10 h-10 flex items-center justify-center border border-gray-600 rounded-lg hover:bg-gray-700 ${favorites.includes(auction.id) ? 'text-red-400' : 'text-gray-300'} transition-colors duration-200`}
-                        onClick={() => toggleFavorite(auction.id)}
-                      >
-                        <Heart size={18} />
-                      </button>
-                    </div>
+                    <div className="flex flex-col">
+  <div className="flex items-center mb-1">
+    <input 
+      type="checkbox" 
+      id={`checkpassBid-${auction.id}`}
+      className="mr-1"
+      checked={checkpassBids[auction.id] || false}
+      onChange={() => {
+        setCheckpassBids(prev => ({
+          ...prev,
+          [auction.id]: !prev[auction.id]
+        }));
+      }}
+    />
+    <label htmlFor={`checkpassBid-${auction.id}`} className="text-xs text-gray-300">Checkpass the Bid</label>
+  </div>
+  <div className="flex gap-2">
+    <button className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors duration-200 shadow-md">
+      {checkpassBids[auction.id] ? 'Direct Purchase' : 'Place Bid'}
+    </button>
+    <button 
+      className={`w-10 h-10 flex items-center justify-center border border-gray-600 rounded-lg hover:bg-gray-700 ${favorites.includes(auction.id) ? 'text-red-400' : 'text-gray-300'} transition-colors duration-200`}
+      onClick={() => toggleFavorite(auction.id)}
+    >
+      <Heart size={18} />
+    </button>
+  </div>
+</div>
                   </div>
                 </div>
               ))}
